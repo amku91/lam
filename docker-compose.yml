@@ -1,14 +1,24 @@
-api:
-  build: ./api
-  ports:
-  - 3000:3000
+lam:
+  build: ./lam
+  ports: 
+    - 8080:8080
   volumes:
-  - ./api:/go/src/github.com/amku91/lam/api
+    - ./lam:/go/src/github.com/amku91/lam/api
   links:
-  - database
-  environment:
-  - DB_NAME=lam
+    - database
 
 database:
+  container_name: lammongo
   image: mongo:3.0
-  command: mongod --smallfiles --quiet --logpath=/dev/null
+  ports:
+      - "27017:27017"
+  environment:
+      - DB_NAME=lam
+      - DB_ROOT_USERNAME=admin
+      - DB_ROOT_PASSWORD=admin123
+  restart: on-failure
+  volumes:
+      - ./data:/db
+  command: mongod -u admin -p admin123 --authenticationDatabase lam --smallfiles --quiet --logpath=/dev/null
+
+  #--sslDisabledProtocols=TLS1_1 --sslMode=allowSSL MONGO_INIT --quiet

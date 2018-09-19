@@ -2,7 +2,7 @@ package repository
 
 import (
 	"github.com/amku91/lam/api/app/order/entities"
-	"github.com/amku91/lam/mongo"
+	"github.com/amku91/lam/api/mongo"
 	"gopkg.in/mgo.v2/bson"
 )
 

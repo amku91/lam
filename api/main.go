@@ -7,7 +7,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/amku91/lam/api/app/order"
-	"github.com/amku91/lam/mongo"
+	"github.com/amku91/lam/api/mongo"
 	"github.com/rs/cors"
 	"github.com/amku91/lam/api/config"
 )

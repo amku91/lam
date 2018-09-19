@@ -21,7 +21,7 @@ const(
 
 	MONGO_MAX_POOL = 4000
 
-	MONGO_DSN = "mongodb://admin:admin123@lam_database_1/lam"
+	MONGO_DSN = "mongodb://api/lam"
 
 	MONGO_DATABASE = "lam"
 )

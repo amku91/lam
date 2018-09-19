@@ -187,7 +187,7 @@ func Test_OrderList_Success_Status_200(t *testing.T) {
 func Test_OrderList_Failed_Safety_Limit_Error_Status_500(t *testing.T) {
 	server.Get("/order").
 		AddQuery("page", "1").
-		AddQuery("limit", "50").
+		AddQuery("limit", "120").
 		Expect(t).
 		Status(500).
 		Type("json").

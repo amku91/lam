@@ -131,7 +131,7 @@ func (rs Controller) PlaceOrder(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 
-		common.HandleAPIError(500, "Something went wrong while generating order id. Please try again later.", w)
+		common.HandleAPIError(500, "Something went wrong while generating order id. Please try again later."+err.Error(), w)
 
 		return
 	}

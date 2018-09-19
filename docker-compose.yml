@@ -1,5 +1,5 @@
-lam:
-  build: ./lam
+api:
+  build: ./api
   ports: 
     - 8080:8080
   volumes:
@@ -8,7 +8,7 @@ lam:
     - database
 
 database:
-  container_name: lammongo
+  container_name: api
   image: mongo:3.0
   ports:
       - "27017:27017"
@@ -19,6 +19,6 @@ database:
   restart: on-failure
   volumes:
       - ./data:/db
-  command: mongod -u admin -p admin123 --authenticationDatabase lam --smallfiles --quiet --logpath=/dev/null
+  command: mongod --smallfiles --quiet --logpath=/dev/null
 
-  #--sslDisabledProtocols=TLS1_1 --sslMode=allowSSL MONGO_INIT --quiet
+  #--sslDisabledProtocols=TLS1_1 --sslMode=allowSSL MONGO_INIT --quiet -u admin -p admin123 --authenticationDatabase lam
